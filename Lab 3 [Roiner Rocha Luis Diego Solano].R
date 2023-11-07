@@ -45,31 +45,21 @@ delitos<- datos_excel %>% group_by(Delito) %>%
   summarise(cantidad=n())
 
 boxplot(delitos$cantidad)
-barplot(delitos$cantidad, main = "Tabla de Delitos", xlab = "Delitos",ylab = "Cantidad", col = "lightblue")
+barplot(delitos$cantidad, main = "Tabla de Delitos", xlab = "Delitos",ylab = "Cantidad", col = "lightblue", names.arg =delitos$Delito)
 
 #######
 SubDelito<- datos_excel %>% group_by(SubDelito) %>% 
   summarise(cantidad=n())
 
 boxplot(SubDelito$cantidad)
-barplot(SubDelito$cantidad, main = "Tabla de SubDelito", xlab = "SubDelito",ylab = "Cantidad", col = "lightblue")
+barplot(SubDelito$cantidad, main = "Tabla de SubDelito", xlab = "SubDelito",ylab = "Cantidad", col = "lightblue", names.arg =SubDelito$SubDelito)
 
 #######
 Victima<- datos_excel %>% group_by(Victima) %>% 
   summarise(cantidad=n())
 
 boxplot(Victima$cantidad)
-barplot(Victima$cantidad, main = "Tabla de Victima", xlab = "Victima",ylab = "Cantidad", col = "lightblue")
-# Generar el gráfico de barras
-grafico_barras <- barplot(Victima$cantidad)
-
-# Crear un vector de etiquetas
-etiquetas <- Victima$cantidad
-
-# Agregar etiquetas a las barras
-text(x = grafico_barras, y = Victima$cantidad, labels = etiquetas, pos = 3)
-
-
+barplot(Victima$cantidad, main = "Tabla de Victima", xlab = "Victima",ylab = "Cantidad", col = "lightblue", names.arg =Victima$Victima )
 
 
 #######
